@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+.content-body{
+    display: grid;
+}
+.head{
+    display: block;
+    text-align: center;
+}
+#head{
+    display: inline-block;
+    font-size: clamp(35px, 4vw, 70px);
+    font-family: monospace;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#head0{
+    display: inline-block;
+    font-weight: 150;
+    font-size: clamp(35px, 4vw, 70px);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.tool-bar{
+    background-color: black;
+    border-top: solid;
+    text-align: center;
+    display: flex;
+    border-bottom: solid;
+}
+.menu{
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    font-size: clamp(15px, 1.5vw, 30px);
+}
+.products{
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    font-size: clamp(15px, 1.5vw, 30px);
+}
+.about{
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    font-size: clamp(15px, 1.5vw, 30px);
+}
+#signIn{
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: clamp(15px, 1.5vw, 30px);
+}
+.tool-bar-buttons0{
+    display: inline-block;
+    margin-right: 10vw;
+    margin-left: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 7px;
+    color: aliceblue;
+}
+.tool-bar-buttons1{
+    display: inline-block;
+    margin-right: 10vw;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 7px;
+    color: aliceblue;
+}
+.tool-bar-buttons2{
+    display: inline-block;
+    margin-right: auto;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 7px;
+    color: aliceblue;
+}
+.tool-bar-buttons3{
+    display: inline-block;
+    margin-right: 10px;
+    margin-right: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 7px;
+    color: aliceblue;
+}
+.tool-bar-buttons0:hover{
+    background-color: blue;
+}
+.tool-bar-buttons1:hover{
+    background-color: blue;
+}
+.tool-bar-buttons2:hover{
+    background-color: blue;
+}
+.tool-bar-buttons3:hover{
+    background-color: blue;
+}
+.album-contaner{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgs{
+        width: 100%;
+        height: 60vw;
+}
+.image-text{
+    margin: 3px;
+    font-weight: 200;
+    font-size: 12px;
+}
+@media (min-width: 700px) {
+    .album-contaner{
+        text-align: center;
+        display: grid;
+        grid-template-columns: 48vw 48vw;
+    }
+    .imgs{
+        width: 100%;
+        height: 50vw;
+     }
+}
+@media (min-width: 800px) {
+    .album-contaner{
+        text-align: center;
+        display: grid;
+        grid-template-columns: 33vw 32vw 33vw;
+    }
+    .imgs{
+        width: 100%;
+        height: 25vw;
+     }
+}
+.page-end{
+    background-color: black;
+    height: auto;
+}
+.getty-log{
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 20px;
+    border-radius: 50px;
+    text-align: center;
+}
+#getty-log-text{
+    color: black;
+    font-size: 70px;
+    margin: 1px;
+}
+.country{
+    background-color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 7px;
+}
+#country{
+    font-size: 25px;
+    margin-left: 10px;
+}
+.end-text{
+    border-top: solid;
+    border-top-color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#end-text{
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.menu-pop-up{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    display: none;
+}
+.menu-content{
+    color: aliceblue;
+    margin: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 3.5vw;
+}
+.menu-content0{
+    display: flex;
+    justify-content: end;
+    margin: 1px;
+    margin-top: 10px;
+    margin-right: 5px;
+    color: aliceblue;
+    font-size: 4vw;
+}
+.product-pop-up{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 25vw;
+    display: none;
+}
+.product-content0{
+    display: flex;
+    justify-content: end;
+    margin: 1px;
+    margin-top: 10px;
+    margin-right: 5px;
+    color: aliceblue;
+    font-size: 4vw;
+}
+.product-content{
+    color: aliceblue;
+    margin: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 3.5vw;
+}
+#about-text{
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-weight: 300;
+    font-size: clamp(12px, 1.1vw, 25px);
+    display: none;
+}
+@media (min-width: 600px) {
+  .menu-pop-up{
+    width: 200px;
+    height: 250px;
+  }  
+  .menu-content{
+    font-size: 25px;
+  }
+  .menu-content0{
+    font-size: 25px;
+  }
+  .product-pop-up{
+    width: 150px;
+    height: 240px;
+    left: 12vw;
+  }
+  .product-content0{
+    font-size: 25px;
+  }
+  .product-content{
+    font-size: 25px;
+  }
+  }
+.swith-first-page{
+    display: none;
+}
+/* Second page */
+.content-body0{
+    display: flex;
+    justify-content: center;
+}
+.sign-in-body{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(1, 1, 31);
+    width: 75vw;
+    height: 90vw;
+    margin-top: 90px;
+    border-radius: 10px;
+    gap: 5px;
+    box-shadow: 3px 3px 2px 3px black;
+    overflow: hidden;
+}
+#head-text0{
+    font-size: 7vw;
+    font-family: monospace;
+    margin-left: 5px;
+    color: aliceblue;
+}
+#email{
+    display: inline-block;
+    font-size: 5vw;
+    margin-left: 10px;
+    margin-right: 2px;
+    margin-top: 50px;
+    margin-bottom: 1px;
+    color: aliceblue;
+}
+#email-input{
+    border: 1px solid;
+    background: rgb(255, 255, 255, 0.8);
+    height: 4.5vw;
+    width: 47.5vw;
+}
+#password-input{
+    border: 1px solid;
+    background: rgb(255, 255, 255, 0.8);
+    height: 4.5vw;
+    width: 40vw;
+}
+#password{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 2px;
+    font-size: 5vw;
+    color: aliceblue;
+}
+.login-register{
+    display: flex;
+}
+#register{
+    margin-left: 30px;
+    font-size: 4vw;
+    margin-right: 15px;
+    margin-top: 20px;
+    margin-bottom: 3px;
+    color: purple;
+}
+#login{
+    font-size: 4vw;
+    margin-top: 20px;
+    margin-bottom: 3px;
+    color: aliceblue;
+}
+#user-sign-in-text{
+    margin-left: 30px;
+    margin-top: 15px;
+    font-size: 3.8vw;
+    color: rgb(139, 7, 7);
+}
+#head-text00{
+    font-size: 7vw;
+    font-family: monospace;
+    margin-left: 5px;
+    color: aliceblue;
+}
+#name{
+    display: inline-block;
+    margin-right: 2px;
+    margin-left: 10px;
+    font-size: 4vw;
+    margin-top: 50px;
+    margin-bottom: 2px;
+    color: aliceblue;
+}
+.name-input{
+    border: 1px solid;
+    background: rgb(255, 255, 255, 0.8);
+    height: 4.5vw;
+    width: 47.5vw;
+}
+#email0{
+    display: inline-block;
+    margin-right: 2px;
+    margin-left: 10px;
+    font-size: 4vw;
+    margin-top: 30px;
+    margin-bottom: 2px;
+    color: aliceblue;
+}
+.email0-input{
+    border: 1px solid;
+    background: rgb(255, 255, 255, 0.8);
+    height: 4.5vw;
+    width: 47.5vw;
+}
+#password0{
+    display: inline-block;
+    margin-right: 2px;
+    margin-left: 10px;
+    font-size: 4vw;
+    margin-top: 30px;
+    margin-bottom: 2px;
+    color: aliceblue;
+}
+.password0-input{
+    border: 1px solid;
+    background: rgb(255, 255, 255, 0.8);
+    height: 4.5vw;
+    width: 41vw;
+}
+.register0{
+    margin-left: 30px;
+    margin-top: 15px;
+    font-size: 4vw;
+    color: purple;
+}
+@media (min-width: 600px) {
+    .sign-in-body{
+        width: 480px;
+        height: 450px;
+        border-radius: 20px;
+    }
+    #head-text0{
+            font-size: 40px;
+            font-family: monospace;
+            margin-left: 5px;
+    }
+    #email{
+        display: inline-block;
+        font-size: 25px;
+        margin-left: 10px;
+        margin-right: 2px;
+        margin-top: 50px;
+        margin-bottom: 1px;
+    }
+    #email-input{
+        border: 1px solid;
+        background: rgb(255, 255, 255, 0.8);
+        height: 22px;
+        width: 370px;
+    }
+    #password-input{
+        border: 1px solid;
+        background: rgb(255, 255, 255, 0.8);
+        height: 22px;
+        width: 330px;
+    }
+    #password{
+        display: inline-block;
+        font-size: 25px;
+        margin-left: 10px;
+        margin-right: 2px;
+        margin-top: 50px;
+    }
+    .login-register{
+        display: flex;
+    }
+    #register{
+        margin-left: 30px;
+        font-size: 20px;
+        margin-right: 15px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        color: purple;
+    }
+    #login{
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    #user-sign-in-text{
+        margin-top: 15px;
+        font-size: 14px;
+    }
+    #head-text00{
+        font-size: 40px;
+        font-family: monospace;
+        margin-left: 5px;
+    }
+    #name{
+        display: inline-block;
+        margin-right: 2px;
+        margin-left: 10px;
+        font-size: 25px;
+        margin-top: 50px;
+        margin-bottom: 2px;
+    }
+    .name-input{
+        border: 1px solid;
+        background: rgb(255, 255, 255, 0.8);
+        height: 22px;
+        width: 330px;
+    }
+    #email0{
+        display: inline-block;
+        margin-right: 2px;
+        margin-left: 10px;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 2px;
+    }
+    .email0-input{
+        border: 1px solid;
+        background: rgb(255, 255, 255, 0.8);
+        height: 22px;
+        width: 330px;
+    }
+    #password0{
+        display: inline-block;
+        margin-right: 2px;
+        margin-left: 10px;
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 2px;
+    }
+    .password0-input{
+        border: 1px solid;
+        background: rgb(255, 255, 255, 0.8);
+        height: 22px;
+        width: 285px;
+    }
+    .register0{
+        margin-left: 30px;
+        margin-top: 45px;
+        font-size: 20px;
+    }
+}
+/* swicths*/
+.sign-in-swicth{
+    display: none;
+}
+.register-swicth{
+    display: none;
+}
+.sign-in-body{
+    display: none;
+}
+body{
+    background: none;
+}
+.swith-first-page{
+    display: block;
+}
+
+
+</style>
+<body>
+    <div class="swith-first-page">
+        <div class="content-body">
+            <div class="head-content">
+                <span class="head"><h1 id="head">getty</h1><h2 id="head0">images</h2></span>
+                <div class="tool-bar">
+                <div class="tool-bar-buttons0" ><h5 class="menu">menu</h5>
+                </div>
+                <div class="tool-bar-buttons1"><h5 class="products">products</h5>
+                </div>
+                <div class="tool-bar-buttons2"><h5 class="about">about</h5>
+                </div>
+                <div class="tool-bar-buttons3"><h5 id="signIn">sign in</h5>
+                </div>
+                </div>
+                <div class="menu-pop-up">
+                    <h5 class="menu-content0" id="canculeM">X </h5>
+                    <h5 class="menu-content" id="shop">Shop</h5>
+                    <h5 class="menu-content" id="tools-services">Tools&Services</h5>
+                    <h5 class="menu-content" id="content">Content</h5>
+                </div>
+                <div class="product-pop-up">
+                    <h5 class="product-content0" id="canculeP">X </h5>
+                    <h5 class="product-content" id="stlye">Style</h5>
+                    <h5 class="product-content" id="filter">Filter</h5>
+                    <h5 class="product-content" id="search">Search</h5>
+                </div>
+                <div class="about0"><h5 id="about-text">blah blah blah blah</h5></div>
+            </div>
+            <div class="album-contaner">
+                <div class="image-body">
+                    <img class="imgs" src="im2.jpg">
+                    <h5 class="image-text">CHOCOLATE WOVEN</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im3.jpg">
+                    <h5 class="image-text">GREY SNAKE PRINT / BLACK SANTIN FLOATY</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im4.jpg">
+                    <h5 class="image-text">WINE LACE WRAP/CHOCOLATE MESH LONG</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im5.jpg">
+                    <h5 class="image-text">WINE TAILORED WOVEN</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im6.jpg">
+                    <h5 class="image-text">BLACK LACE CUT</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im7.jpg">
+                    <h5 class="image-text">BLACK SLINKY ONE SLEEVE/BLACK SOFT TOUCH</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im8.jpg">
+                    <h5 class="image-text">DACK WINE LACE CUT OUT</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im9.jpg">
+                    <h5 class="image-text">BLACK SOFT TOUCH HOT/BURGUNDY FINE KNIT</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im10.jpg">
+                    <h5 class="image-text">TAUPE WOVEN CINCHED</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im11.jpg">
+                    <h5 class="image-text">BLACK LACE SLINKY</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im12.jpg">
+                    <h5 class="image-text">CHOCOLATE LACE WRAP/BLACK SLINKY WRAP</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im13.jpg">
+                    <h5 class="image-text">CHOCOLATE SLINKY SOFT</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im14.jpg">
+                    <h5 class="image-text">BLACK SLINKY SOFT TOUCH</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im15.jpg">
+                    <h5 class="image-text">BLACK BRUSHED OVERSIZE/ COAL POLYAMIDE</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im16.jpg">
+                    <h5 class="image-text">BLACK WOVEN BUTTON/CHOCOLATE WOVEN BOAT</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im17.jpg">
+                    <h5 class="image-text">BLACK VELVET BOMBER/STONE SUEDE BELTED DROP</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im18.jpg">
+                    <h5 class="image-text">BLACK BUTTON UP SLEEP/CHOCOLATE HEAVY </h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im19.jpg">
+                    <h5 class="image-text">DEEP PLUM WOVEN CACOO/MULTI FLORAL JACQUARD</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im20.jpg">
+                    <h5 class="image-text">DARK BROWN TWILL/DARK BROWN TWILL</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im21.jpg">
+                    <h5 class="image-text">MUSHROOM LACE TRIM/CREAM RIBBED LOW BACK</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im22.jpg">
+                    <h5 class="image-text">DEEP PLUM WOVEN CINCHE</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im23.jpg">
+                    <h5 class="image-text">STONE WOVEN HIGH NECK/CHOCOLATE BRUSHED</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im24.jpg">
+                    <h5 class="image-text">BLACK TEXTURED SHEER/PRETTY LITTLE THING BLACK</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im25.jpg">
+                    <h5 class="image-text">PREMIUM BLACK WOVEN/PETITE ASH GREY SUPER</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im26.jpg">
+                    <h5 class="image-text">PRETTY LITTLE THING BLACK/BLACK LACE BONING</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im27.jpg">
+                    <h5 class="image-text">WHITE SEAM DETAIL FITTED/PETITE VINNTAGE WASH</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im28.jpg">
+                    <h5 class="image-text">DARK PLUM TEXTURED/CHARCOAL LO RISE</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im29.jpg">
+                    <h5 class="image-text">ESPRESSO COTTON FLEECE/CHOCOLATE BROWN DOUBL</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im30.jpg">
+                    <h5 class="image-text">BLACK TRIM SHIFT MINI/BLACK COTTON CREW NECK</h5>
+                </div>
+                <div class="image-body">
+                    <img class="imgs" src="im31.jpg">
+                    <h5 class="image-text">EMERALD GREEN LACE CUT</h5>
+                </div>
+            </div>
+            <div class="page-end">
+                <div class="end-content">
+                    <div class="getty-log"><h5 id="getty-log-text">g</h5></div>
+                    <div class="country"><h5 id="country">United states</h5></div>
+                    <div class="end-text"><h5 id="end-text">Enhance your wardrobe with our latest collection of must-have women's clothing. Discover wardrobe staples which can be re- styled and worn on rotation. We're talking everything from elevated basics that are here for a good time (and a long time) to statement looks that will work harder than your 9-5. Daily dressing just got a whole lot easier. RSVP yes to those all important weekend plans thanks to our women's fashion edit. Opt for timeless tailoring and structured silhouettes that are worthy of the IT girl title. From lattes to late nights, our women's clothing collection is made for you and whatever's on your agenda. No bad outfits, only good decisions</h5></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swith-second-page">
+        <div class="content-body0">
+            <div class="sign-in-body">
+                <div class="sign-in-swicth">
+                    <div class="head-text0"><h1 id="head-text0">Sign in</h1></div>
+                    <div class="email"><h5 id="email">Email</h5><input id="email-input" placeholder="example@gmail.com" type="text"></div>
+                    <div class="password"><h5 id="password">Password</h5><input id="password-input" placeholder="******" type="text"></div>
+                    <div class="login-register"><h5 id="register">Register</h5><h5 id="login">Login</h5></div>
+                    <div class="user-sign-in-text"><h5 id="user-sign-in-text"></h5></div>
+                </div>
+                <div class="register-swicth">
+                    <div class="head-text00"><h1 id="head-text00">Register</h1></div>
+                    <div class="name"><h5 id="name">Name</h5><input class="name-input" placeholder="name"></div>
+                    <div class="email0"><h5 id="email0">Email</h5><input class="email0-input" placeholder="example@gmail.com"></div>
+                    <div class="password0"><h5 id="password0">Password</h5><input class="password0-input" placeholder="*********"></div>
+                    <div class="register0">Register</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    
+const body=document.querySelector("body");
+const firstPage=document.querySelector(".swith-first-page");
+const signIn=document.querySelector("#signIn");
+const menu=document.querySelector(".menu");
+const menuCancule=document.querySelector("#canculeM");
+const products=document.querySelector(".products");
+const productsCancule=document.querySelector("#canculeP");
+const menuPopUp=document.querySelector(".menu-pop-up");
+const productsPopUp=document.querySelector(".product-pop-up");
+const aboutText=document.querySelector("#about-text");
+const about=document.querySelector(".about");
+const secondPage=document.querySelector(".sign-in-body");
+const signInPage=document.querySelector(".sign-in-swicth");
+const register=document.querySelector("#register");
+const registerSwicth=document.querySelector(".register-swicth");
+const userRegister=document.querySelector(".register0");
+const login0=document.querySelector("#login");
+const loginText=document.querySelector("#user-sign-in-text");
+
+let signInPass=true;
+let aboutState=false;
+
+menu.addEventListener('click',()=>{
+    productsPopUp.style.display='none'
+    menuPopUp.style.display='flex'
+});
+products.addEventListener('click',()=>{
+    menuPopUp.style.display='none'
+    productsPopUp.style.display='flex'
+});
+menuCancule.addEventListener('click',()=>{
+    menuPopUp.style.display='none'
+});
+productsCancule.addEventListener('click',()=>{
+    productsPopUp.style.display='none'
+});
+about.addEventListener('click',()=>{
+    if(!aboutState){
+        aboutText.style.display='flex';
+        aboutState=true;
+    } else{
+        aboutText.style.display='none';
+        aboutState=false;
+    }
+});
+
+signIn.addEventListener('click',()=>{
+    if(signInPass){
+        firstPage.style.display='none';
+        secondPage.style.display='flex';
+        signInPage.style.display='flex';
+        signInPage.style.flexDirection= 'column';
+    }
+});
+register.addEventListener('click',()=>{
+    signInPage.style.display='none';
+    registerSwicth.style.display='flex';
+    registerSwicth.style.flexDirection= 'column';
+});
+
+const userDetails=[];
+let userGreet=null;
+
+
+userRegister.addEventListener('click',()=>{
+    registerUser();
+});
+login0.addEventListener('click',()=>{
+    login();
+});
+function registerUser(){
+const name=document.querySelector(".name-input").value;
+const email=document.querySelector(".email0-input").value;
+const password=document.querySelector(".password0-input").value;
+const email0=document.querySelector("#email-input");
+const password0=document.querySelector("#password-input");
+let user=[
+    {
+    name: name,
+    email: email,
+    password: password,
+    }
+    ];
+    userDetails.push(user);
+    console.log(userDetails);
+    alert('Registration succesfull sign in');
+    loginText.textContent='';
+    email0.textContent=''.value;
+    password0.textContent=''.value;
+    registerSwicth.style.display='none';
+    signInPage.style.display='flex';
+    signInPage.style.flexDirection= 'column';
+}
+
+function login(){
+    const email=document.querySelector("#email-input").value;
+    const password=document.querySelector("#password-input").value;
+    let userPass=false;
+    (userDetails.length===0)? loginText.textContent='Account not found pls register' : null;
+    for(let i=0; i<userDetails.length; i++){
+        if(userDetails[i][0].email===email && userDetails[i][0].password===password){
+            userPass=true;
+            alert('login sucessful');
+            userGreet=userDetails[i][0].name;
+            registerSwicth.style.display='none';
+            signInPage.style.display='none';
+            secondPage.style.display='none';
+            signInPass=false;
+            signIn.textContent=`Hi ${userGreet}`;
+            firstPage.style.display='flex';
+        }else {
+            loginText.textContent='Wrong email or password!';
+        }
+    }
+}
+
+</script>
+</html>
